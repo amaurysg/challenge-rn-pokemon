@@ -16,7 +16,7 @@ export const usePokemonPaginated = () => {
   const nextPageUrl = useRef(`https://pokeapi.co/api/v2/pokemon/?limit=40`);
 
   const loadPokemons = async () => {
-    setIsLoading(true)
+    setIsLoading(true);
     const resp = await pokemonApi.get<PokemonPaginatedResponse>(
       nextPageUrl.current,
     );
@@ -39,7 +39,7 @@ export const usePokemonPaginated = () => {
       return {id, picture, name};
     });
     setSimplePokemonList([...simplePokemonList, ...newPokemonList]);
-    setIsLoading(false)
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -47,7 +47,8 @@ export const usePokemonPaginated = () => {
   }, []);
 
   return {
-      isLoading,
+    isLoading,
     simplePokemonList,
+    loadPokemons,
   };
 };
