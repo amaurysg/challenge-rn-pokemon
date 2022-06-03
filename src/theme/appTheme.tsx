@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     height: 300,
     top: -100,
     right: -100,
-    opacity: 0.2,
+    opacity: 0.8,
   },
   title:{
       fontSize:35,
