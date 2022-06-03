@@ -35,6 +35,7 @@ export const usePokemonPaginated = () => {
       //here we need the position urlParts.length - 2
       const id = urlParts[urlParts.length - 2];
       const picture = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+      const other = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`
 
       return {id, picture, name};
     });
