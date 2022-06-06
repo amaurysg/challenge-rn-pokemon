@@ -23,7 +23,6 @@ export const PokemonScreen = ({navigation, route}: Props) => {
   const {top} = useSafeAreaInsets();
   const {pokemon, isLoading} = usePokemon(id);
 
-  console.log('info pokemon:::', pokemon.sprites);
   return (
     <View style={{flex: 1}}>
       <View style={{...styles.headerContainer, backgroundColor: color}}>
