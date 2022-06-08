@@ -12,6 +12,7 @@ export const Tabs = () => {
     <Tab.Navigator
         sceneContainerStyle={{backgroundColor:'white'}}  
         screenOptions={{ 
+          headerShown:false,
             tabBarActiveTintColor: '#5856D5',
             tabBarStyle: { 
                 position: 'absolute',
