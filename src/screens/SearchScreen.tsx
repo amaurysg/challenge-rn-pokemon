@@ -31,7 +31,7 @@ export const SearchScreen = () => {
     <View
       style={{
         flex: 1,
-        /*  marginTop: Platform.OS === 'ios' ? top : top + 10, */
+        /*  marginTop: Platform.OS === 'ios' ? top : top = 10 */
         marginHorizontal: 20,
       }}>
       <SearchInput
