@@ -4,6 +4,7 @@ import {
   ActivityIndicator,
   Dimensions,
   Image,
+  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -18,7 +19,8 @@ import {RootStackParams} from '../navigation/Tab1';
 
 interface Props extends StackScreenProps<RootStackParams, 'PokemonScreen'> {}
 
-const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window')
+const {width: SCREEN_WIDTH, height: SCREEN_HEIGHT} = Dimensions.get('window');
+
 export const PokemonScreen = ({navigation, route}: Props) => {
   const {simplePokemon, color} = route.params;
   const {id, name, picture} = simplePokemon;
@@ -27,46 +29,36 @@ export const PokemonScreen = ({navigation, route}: Props) => {
 
   return (
     <View style={{flex: 1}}>
-      <View style={{...styles.headerContainer, backgroundColor: color}}>
+      <View
+        style={{
+          ...styles.headerContainer,
+          backgroundColor: color,
+      
+
+  
+        }}>
         <TouchableOpacity
           style={{...styles.backButton, top: top + 10}}
           onPress={() => navigation.popToTop()}>
           <Icon name="arrow-back-outline" color={'white'} size={30} />
         </TouchableOpacity>
 
-        <Text style={{...styles.pokemonName, top: top + 40}}>
-          {name}
-        </Text>
+        <Text style={{...styles.pokemonName, top: top + 50}} >{name}</Text>
         <View style={styles.pokemonId}>
-            <Text style={{color: 'white', fontWeight: 'bold', fontSize:20}}>
-              {id}
-            </Text>
-          </View>
-
-{/*           <View style={{ flex: 1 }}>
-                <View style={{
-                     width: SCREEN_WIDTH,
-                     height: 0,
-                     borderTopColor: "blue",
-                     borderTopWidth: SCREEN_HEIGHT / 2,
-                     borderRightWidth: SCREEN_WIDTH,
-                     borderRightColor: 'transparent'
-                  
-                }}
-                 
-                />
-            </View> */}
-      
+          <Text style={{color: 'white', fontWeight: 'bold', fontSize: 20}}>
+            {id}
+          </Text>
+        </View>
         <FadeInImage uri={picture} style={styles.imagePokemon} />
       </View>
 
-        {isLoading ? (
-      <View style={styles.loadingContainer}>
+      {isLoading ? (
+        <View style={styles.loadingContainer}>
           <ActivityIndicator color={color} size={50} />
-      </View>
-        ) : (
-          <PokemonDetails pokemon={pokemon}/>
-        )}
+        </View>
+      ) : (
+        <PokemonDetails pokemon={pokemon} />
+      )}
     </View>
   );
 };
@@ -76,8 +68,8 @@ const styles = StyleSheet.create({
     height: 330,
     zIndex: 999,
     alignItems: 'center',
-    borderBottomRightRadius: 10,
-    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 0,
+    borderBottomLeftRadius: 50,
   },
   backButton: {
     position: 'absolute',
@@ -92,22 +84,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: 'white',
     justifyContent: 'center',
-    marginTop:5
+    marginTop: Platform.OS === 'ios' ? 0 : -40,
 
   },
   pokemonName: {
     color: 'white',
     fontSize: 40,
     alignSelf: 'center',
-    /* left: 25, */
     fontWeight: 'bold',
     textTransform: 'capitalize',
-  },
-  pokeball: {
-    width: 250,
-    height: 250,
-    bottom: -20,
-    opacity: 0.7,
   },
   imagePokemon: {
     width: 280,
