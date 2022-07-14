@@ -1,4 +1,9 @@
 # rn-PokeApp
+Once you clone the repository, 
+
+- `1- You must install the dependencies: $yarn install `
+- `2- You must run the project with: $npx react-native run-ios or $npx react-native run-android (This will depend on the environments you have available in your machine).`
+- ✨Magic ✨
 
 https://user-images.githubusercontent.com/5247198/179101142-013874e4-7290-487f-8881-5b9d49d47550.mov
 
