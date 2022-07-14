@@ -15,7 +15,7 @@ import {
   useNavigation,
 } from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParams} from '../navigation/Navigator';
+import {RootStackParams} from '../navigation/Tab1';
 
 interface Props {
   pokemon: SimplePokemon;
@@ -48,20 +48,21 @@ export const PokemonCard = ({pokemon}: Props) => {
       <View
         style={{
           ...styles.cardContainer,
-          width: windowWidth * 0.4,
+          width: windowWidth * 0.28,
           backgroundColor: bgColor,
         }}>
+            <FadeInImage uri={pokemon.picture} style={styles.pokemonImage} />
         <View>
           <Text style={styles.name}>{pokemon.name}</Text>
         </View>
-
-        <View style={styles.pokebolaContainer}>
+        <Text style={styles.name}>{pokemon.id}</Text>
+{/*         <View style={styles.pokebolaContainer}>
           <Image
             source={require('../assets/pokebola-blanca.png')}
             style={styles.pokebola}
           />
-        </View>
-        <FadeInImage uri={pokemon.picture} style={styles.pokemonImage} />
+        </View> */}
+      
       </View>
     </TouchableOpacity>
   );
@@ -71,10 +72,12 @@ const styles = StyleSheet.create({
   cardContainer: {
     marginHorizontal: 10,
     //backgroundColor: 'orange',
-    height: 120,
+    height: 160,
     width: 160,
-    marginBottom: 20,
-    borderRadius: 10,
+    alignContent:'center',
+    textAlign:'center',
+    marginBottom: 40,
+    borderRadius: 0,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -84,13 +87,18 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
 
     elevation: 5,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    borderBottomRightRadius: 800,
+    borderBottomLeftRadius: 800,
   },
   name: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
-    top: 20,
-    left: 10,
+    top: 60,
+    left: 12,
+  
     textTransform: 'capitalize',
   },
   pokebola: {
@@ -104,11 +112,11 @@ const styles = StyleSheet.create({
     bottom: -25,
   },
   pokemonImage: {
-    width: 120,
-    height: 120,
+    width: 110,
+    height: 110,
     position: 'absolute',
-    right: -8,
-    bottom: -5,
+   /*  right: -8, */
+    top: -20,
   },
   pokebolaContainer: {
     width: 100,

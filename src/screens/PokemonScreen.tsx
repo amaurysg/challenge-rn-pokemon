@@ -13,7 +13,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {FadeInImage} from '../components/FadeInImage';
 import PokemonDetails from '../components/PokemonDetails';
 import {usePokemon} from '../hooks/usePokemon';
-import {RootStackParams} from '../navigation/Navigator';
+import {RootStackParams} from '../navigation/Tab1';
 
 interface Props extends StackScreenProps<RootStackParams, 'PokemonScreen'> {}
 
@@ -33,13 +33,13 @@ export const PokemonScreen = ({navigation, route}: Props) => {
         </TouchableOpacity>
 
         <Text style={{...styles.pokemonName, top: top + 40}}>
-          {name + '\n'} #{id}
+          {name}
         </Text>
-
+{/* 
         <Image
           source={require('../assets/pokebola-blanca.png')}
           style={styles.pokeball}
-        />
+        /> */}
         <FadeInImage uri={picture} style={styles.imagePokemon} />
       </View>
 
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     zIndex: 999,
     alignItems: 'center',
     borderBottomRightRadius: 1000,
-    borderBottomLeftRadius: 1000,
+    borderBottomLeftRadius: 0,
   },
   backButton: {
     position: 'absolute',
@@ -69,8 +69,8 @@ const styles = StyleSheet.create({
   pokemonName: {
     color: 'white',
     fontSize: 40,
-    alignSelf: 'flex-start',
-    left: 25,
+    alignSelf: 'center',
+    /* left: 25, */
     fontWeight: 'bold',
     textTransform: 'capitalize',
   },
@@ -81,10 +81,10 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   imagePokemon: {
-    width: 250,
-    height: 250,
+    width: 280,
+    height: 280,
     position: 'absolute',
-    bottom: -15,
+    bottom: -25,
   },
   loadingContainer: {
     flex: 1,

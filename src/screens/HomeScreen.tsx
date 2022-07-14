@@ -12,10 +12,10 @@ export const HomeScreen = () => {
 
   return (
     <View>
-      <Image
+{/*       <Image
         source={require('../assets/poke_header.svg.png')}
         style={styles.pokebolaBG}
-      />
+      /> */}
       {/*     <Text style={{...styles.title, ...styles.globalMargin, top: top}}>
         Home screen
       </Text> */}
@@ -30,11 +30,11 @@ export const HomeScreen = () => {
               <View /* style={{justifyContent: 'center', alignItems: 'center', top:top-20}} */>
                 <Image
                   source={require('../assets/poke_header.svg.png')}
-                  style={{height: 80, width: 80}}
+                  style={{height: 70, width: 70}}
                 />
               </View>
           )}
-          numColumns={2}
+          numColumns={3}
           //infinite Scroll
           onEndReached={loadPokemons}
           onEndReachedThreshold={0.4}
