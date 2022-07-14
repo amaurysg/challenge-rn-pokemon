@@ -11,7 +11,6 @@ import {SimplePokemon} from '../interfaces/pokemonInterfaces';
 import {FadeInImage} from './FadeInImage';
 import ImageColors from 'react-native-image-colors';
 import {
-  NavigationHelpersContext,
   useNavigation,
 } from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -51,18 +50,20 @@ export const PokemonCard = ({pokemon}: Props) => {
           width: windowWidth * 0.28,
           backgroundColor: bgColor,
         }}>
-            <FadeInImage uri={pokemon.picture} style={styles.pokemonImage} />
-        <View>
-          <Text style={styles.name}>{pokemon.name}</Text>
+        <FadeInImage uri={pokemon.picture} style={styles.pokemonImage} />
+
+        <View style={styles.pokemonDataContainer}>
+          <View
+            style={styles.nameContainer}>
+            <Text style={styles.name}>{pokemon.name}</Text>
+          </View>
+
+          <View style={styles.pokemonId}>
+            <Text style={{color: 'white', fontWeight: 'bold'}}>
+              {pokemon.id}
+            </Text>
+          </View>
         </View>
-        <Text style={styles.name}>{pokemon.id}</Text>
-{/*         <View style={styles.pokebolaContainer}>
-          <Image
-            source={require('../assets/pokebola-blanca.png')}
-            style={styles.pokebola}
-          />
-        </View> */}
-      
       </View>
     </TouchableOpacity>
   );
@@ -71,11 +72,10 @@ export const PokemonCard = ({pokemon}: Props) => {
 const styles = StyleSheet.create({
   cardContainer: {
     marginHorizontal: 10,
-    //backgroundColor: 'orange',
-    height: 160,
+    height: 140,
     width: 160,
-    alignContent:'center',
-    textAlign:'center',
+    alignContent: 'center',
+    textAlign: 'center',
     marginBottom: 40,
     borderRadius: 0,
     shadowColor: '#000',
@@ -87,44 +87,43 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
 
     elevation: 5,
-    borderTopRightRadius: 20,
-    borderTopLeftRadius: 20,
-    borderBottomRightRadius: 800,
-    borderBottomLeftRadius: 800,
-  },
-  name: {
-    color: 'white',
-    fontSize: 18,
-    fontWeight: 'bold',
-    top: 60,
-    left: 12,
-  
-    textTransform: 'capitalize',
-  },
-  pokebola: {
-    width: 100,
-    height: 100,
-    position: 'absolute',
-    /*   bottom: -20,
-    right: -20,
-    opacity: 0.5, */
-    right: -25,
-    bottom: -25,
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 10,
   },
   pokemonImage: {
     width: 110,
     height: 110,
     position: 'absolute',
-   /*  right: -8, */
     top: -20,
   },
-  pokebolaContainer: {
-    width: 100,
-    height: 100,
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    overflow: 'hidden',
-    opacity: 0.5,
+  pokemonDataContainer: {
+    top: 70,
+    alignItems: 'center',
+  },
+  nameContainer:{
+    alignContent: 'center',
+    alignItems: 'center',
+    marginTop: 5,
+  },
+  name: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textTransform: 'capitalize',
+  },
+
+  pokemonId: {
+    borderWidth: 2,
+    borderRadius: 50,
+    width: 32,
+    height: 32,
+    alignContent: 'center',
+    alignItems: 'center',
+    borderColor: 'white',
+    justifyContent: 'center',
+    marginTop:5
+
   },
 });
