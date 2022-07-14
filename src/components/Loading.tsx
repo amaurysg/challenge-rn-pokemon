@@ -10,12 +10,10 @@ export const Loading = () => {
   );
 };
 
-
 const styles = StyleSheet.create({
-    activityContainer: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-  });
-  
+  activityContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});

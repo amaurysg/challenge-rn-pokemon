@@ -6,7 +6,7 @@ export const NotFound = (str: any) => {
 
   return (
     <View style={styles.activityContainer}>
-        <Text style={styles.text}>Sorry, Pokémon {myJSON} not found...</Text>
+      <Text style={styles.text}>Sorry, Pokémon {myJSON} not found...</Text>
       <Image style={styles.image} source={require('../assets/not-found.gif')} />
     </View>
   );
@@ -22,8 +22,7 @@ const styles = StyleSheet.create({
     height: 350,
     width: 350,
   },
-  text:{
-    fontSize:18,
-  }
-
+  text: {
+    fontSize: 18,
+  },
 });

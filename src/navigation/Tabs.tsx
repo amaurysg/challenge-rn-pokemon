@@ -23,6 +23,7 @@ export const Tabs = () => {
           borderWidth: 0,
           elevation: 0,
           height: Platform.OS === 'ios' ? 70 : 80,
+          //Now is disable, but is available to use
           display:'none'
         },
       }}>

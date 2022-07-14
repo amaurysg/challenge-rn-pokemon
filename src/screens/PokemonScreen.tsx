@@ -3,7 +3,6 @@ import React from 'react';
 import {
   ActivityIndicator,
   Dimensions,
-  Image,
   Platform,
   StyleSheet,
   Text,
@@ -33,9 +32,6 @@ export const PokemonScreen = ({navigation, route}: Props) => {
         style={{
           ...styles.headerContainer,
           backgroundColor: color,
-      
-
-  
         }}>
         <TouchableOpacity
           style={{...styles.backButton, top: top + 10}}
@@ -43,7 +39,7 @@ export const PokemonScreen = ({navigation, route}: Props) => {
           <Icon name="arrow-back-outline" color={'white'} size={30} />
         </TouchableOpacity>
 
-        <Text style={{...styles.pokemonName, top: top + 50}} >{name}</Text>
+        <Text style={{...styles.pokemonName, top: top + 50}}>{name}</Text>
         <View style={styles.pokemonId}>
           <Text style={{color: 'white', fontWeight: 'bold', fontSize: 20}}>
             {id}
@@ -85,7 +81,6 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     justifyContent: 'center',
     marginTop: Platform.OS === 'ios' ? 0 : -40,
-
   },
   pokemonName: {
     color: 'white',

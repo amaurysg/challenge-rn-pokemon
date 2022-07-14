@@ -34,7 +34,7 @@ export const SearchScreen = () => {
       );
       setPokemonFiltered(pokemonById ? [pokemonById] : []);
     }
-    console.log('TERM',term)
+    console.log('TERM', term);
   }, [term, simplePokemonList]);
 
   if (isFetching) {
@@ -45,8 +45,6 @@ export const SearchScreen = () => {
     <View
       style={{
         flex: 1,
-        /*  marginTop: Platform.OS === 'ios' ? top : top = 10 */
-        /*  marginHorizontal: 20, */
       }}>
       <SearchInput
         onDebounced={value => setTerm(value)}
@@ -60,7 +58,7 @@ export const SearchScreen = () => {
       />
 
       {term && pokemonFiltered.length === 0 ? (
-        <NotFound str={term}/>
+        <NotFound str={term} />
       ) : (
         <FlatList
           data={pokemonFiltered}
