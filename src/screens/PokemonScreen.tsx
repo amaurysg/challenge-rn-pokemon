@@ -2,6 +2,7 @@ import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
 import {
   ActivityIndicator,
+  Dimensions,
   Image,
   StyleSheet,
   Text,
@@ -17,6 +18,7 @@ import {RootStackParams} from '../navigation/Tab1';
 
 interface Props extends StackScreenProps<RootStackParams, 'PokemonScreen'> {}
 
+const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window')
 export const PokemonScreen = ({navigation, route}: Props) => {
   const {simplePokemon, color} = route.params;
   const {id, name, picture} = simplePokemon;
@@ -35,11 +37,26 @@ export const PokemonScreen = ({navigation, route}: Props) => {
         <Text style={{...styles.pokemonName, top: top + 40}}>
           {name}
         </Text>
-{/* 
-        <Image
-          source={require('../assets/pokebola-blanca.png')}
-          style={styles.pokeball}
-        /> */}
+        <View style={styles.pokemonId}>
+            <Text style={{color: 'white', fontWeight: 'bold', fontSize:20}}>
+              {id}
+            </Text>
+          </View>
+
+{/*           <View style={{ flex: 1 }}>
+                <View style={{
+                     width: SCREEN_WIDTH,
+                     height: 0,
+                     borderTopColor: "blue",
+                     borderTopWidth: SCREEN_HEIGHT / 2,
+                     borderRightWidth: SCREEN_WIDTH,
+                     borderRightColor: 'transparent'
+                  
+                }}
+                 
+                />
+            </View> */}
+      
         <FadeInImage uri={picture} style={styles.imagePokemon} />
       </View>
 
@@ -56,15 +73,27 @@ export const PokemonScreen = ({navigation, route}: Props) => {
 
 const styles = StyleSheet.create({
   headerContainer: {
-    height: 370,
+    height: 330,
     zIndex: 999,
     alignItems: 'center',
-    borderBottomRightRadius: 1000,
-    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 10,
   },
   backButton: {
     position: 'absolute',
     left: 20,
+  },
+  pokemonId: {
+    borderWidth: 2,
+    borderRadius: 50,
+    width: 42,
+    height: 42,
+    alignContent: 'center',
+    alignItems: 'center',
+    borderColor: 'white',
+    justifyContent: 'center',
+    marginTop:5
+
   },
   pokemonName: {
     color: 'white',
@@ -84,7 +113,7 @@ const styles = StyleSheet.create({
     width: 280,
     height: 280,
     position: 'absolute',
-    bottom: -25,
+    bottom: -45,
   },
   loadingContainer: {
     flex: 1,

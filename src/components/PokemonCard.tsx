@@ -42,7 +42,7 @@ export const PokemonCard = ({pokemon}: Props) => {
   return (
     <TouchableOpacity
       onPress={() =>
-        navigate('PokemonScreen', {simplePokemon: pokemon, color: bgColor})
+        navigate('PokemonScreen', {simplePokemon: pokemon, color: bgColor })
       }>
       <View
         style={{
@@ -50,12 +50,12 @@ export const PokemonCard = ({pokemon}: Props) => {
           width: windowWidth * 0.28,
           backgroundColor: bgColor,
         }}>
-        <FadeInImage uri={pokemon.picture} style={styles.pokemonImage} />
+        <FadeInImage uri={pokemon.picture}  style={styles.pokemonImage} />
 
         <View style={styles.pokemonDataContainer}>
           <View
             style={styles.nameContainer}>
-            <Text style={styles.name}>{pokemon.name}</Text>
+            <Text style={styles.name} ellipsizeMode='tail' numberOfLines={1}>{pokemon.name}</Text>
           </View>
 
           <View style={styles.pokemonId}>

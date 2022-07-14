@@ -37,7 +37,7 @@ export const usePokemonPaginated = () => {
       const picture = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
       const other = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`
 
-      return {id, picture, name};
+      return {id, picture, name, other};
     });
     setSimplePokemonList([...simplePokemonList, ...newPokemonList]);
     setIsLoading(false);

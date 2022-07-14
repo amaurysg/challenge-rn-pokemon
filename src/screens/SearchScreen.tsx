@@ -7,6 +7,7 @@ import {PokemonCard} from '../components/PokemonCard';
 import {Loading} from '../components/Loading';
 import {styles} from '../theme/appTheme';
 import {SimplePokemon} from '../interfaces/pokemonInterfaces';
+import {NotFound} from '../components/NotFound';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -16,7 +17,6 @@ export const SearchScreen = () => {
 
   const [pokemonFiltered, setPokemonFiltered] = useState<SimplePokemon[]>([]);
   const [term, setTerm] = useState('');
-  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     if (term.length === 0 || term === '') {
@@ -34,6 +34,7 @@ export const SearchScreen = () => {
       );
       setPokemonFiltered(pokemonById ? [pokemonById] : []);
     }
+    console.log('TERM',term)
   }, [term, simplePokemonList]);
 
   if (isFetching) {
@@ -59,7 +60,7 @@ export const SearchScreen = () => {
       />
 
       {term && pokemonFiltered.length === 0 ? (
-        <Loading />
+        <NotFound str={term}/>
       ) : (
         <FlatList
           data={pokemonFiltered}

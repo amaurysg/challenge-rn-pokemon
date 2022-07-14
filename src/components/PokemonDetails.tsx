@@ -11,7 +11,29 @@ export default function PokemonDetails({pokemon}: Props) {
   return (
     <ScrollView style={{...StyleSheet.absoluteFillObject}} showsVerticalScrollIndicator={false}>
       <View style={{...styles.container, marginTop: 370}}>
-       <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
+
+
+
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{...styles.container, marginTop:20}}>
+        <FadeInImage
+          uri={pokemon.sprites.front_default}
+          style={styles.basicSprites}
+        />
+        <FadeInImage
+          uri={pokemon.sprites.back_default}
+          style={styles.basicSprites}
+        />
+        <FadeInImage
+          uri={pokemon.sprites.front_shiny}
+          style={styles.basicSprites}
+        />
+        <FadeInImage
+          uri={pokemon.sprites.back_shiny}
+          style={styles.basicSprites}
+        />
+      </ScrollView>
+
+       <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginHorizontal:20}}>
         <View>
                 <Text style={{...styles.typesTitle}}>Type:</Text>           
                 <View style={{flexDirection: 'row'}}>
@@ -33,47 +55,30 @@ export default function PokemonDetails({pokemon}: Props) {
        </View>
       </View>
 
-      <View style={{...styles.container}}>
-        <Text style={{...styles.typesTitle}}>Sprites:</Text>
-      </View>
+<View style={{marginHorizontal:20}}>
+        <View style={{...styles.container}}>
+          <Text style={{...styles.typesTitle, marginTop:0}}>Abilitys:</Text>
+          <View style={{flexDirection: 'row'}}>
+            {pokemon.abilities.map(({ability}) => (
+              <Text style={{...styles.regularText, marginRight:5}}>{ability.name}</Text>
+            ))}
+          </View>
+        </View>
+  
+        <View style={{...styles.container}}>
+          <Text style={{...styles.typesTitle, marginTop:20}}>Stats:</Text>
+          <View >
+            {pokemon.stats.map((stat, i) => (
+             <View key={stat.stat.name + i} style={{flexDirection:'row', justifyContent:'space-between', borderWidth:1, borderRadius:10, marginBottom:3, padding:2}}>
+                  <Text style={{...styles.regularText, marginRight:5}}>{stat.stat.name}</Text>
+                  <Text style={{...styles.regularText, marginRight:5, fontWeight:'bold'}}>{stat.base_stat}</Text>
+             </View>
+            ))}
+          </View>
+        </View>
+</View>
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        <FadeInImage
-          uri={pokemon.sprites.front_default}
-          style={styles.basicSprites}
-        />
-        <FadeInImage
-          uri={pokemon.sprites.back_default}
-          style={styles.basicSprites}
-        />
-        <FadeInImage
-          uri={pokemon.sprites.front_shiny}
-          style={styles.basicSprites}
-        />
-        <FadeInImage
-          uri={pokemon.sprites.back_shiny}
-          style={styles.basicSprites}
-        />
-      </ScrollView>
-      <View style={{...styles.container}}>
-        <Text style={{...styles.typesTitle, marginTop:0}}>Abilitys:</Text>
-        <View style={{flexDirection: 'row'}}>
-          {pokemon.abilities.map(({ability}) => (
-            <Text style={{...styles.regularText, marginRight:5}}>{ability.name}</Text>
-          ))}
-        </View>
-      </View>
-      <View style={{...styles.container}}>
-        <Text style={{...styles.typesTitle, marginTop:20}}>Stats:</Text>
-        <View >
-          {pokemon.stats.map((stat, i) => (
-           <View key={stat.stat.name + i} style={{flexDirection:'row', justifyContent:'space-between'}}>
-                <Text style={{...styles.regularText, marginRight:5}}>{stat.stat.name}</Text>
-                <Text style={{...styles.regularText, marginRight:5, fontWeight:'bold'}}>{stat.base_stat}</Text>
-           </View>
-          ))}
-        </View>
-      </View>
+
       <View>
       <FadeInImage
           uri={pokemon.sprites.back_default}
@@ -86,7 +91,7 @@ export default function PokemonDetails({pokemon}: Props) {
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 20,
+    //marginHorizontal: 20,
   },
   typesTitle: {
     fontWeight: 'bold',

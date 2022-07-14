@@ -4,7 +4,7 @@ import { useAnimation } from '../hooks/useAnimation';
 
 
 interface Props {
-    uri: string;
+    uri?: string;
     style?: StyleProp<ImageStyle>;
 }
 

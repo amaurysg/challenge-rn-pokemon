@@ -12,13 +12,6 @@ export const HomeScreen = () => {
 
   return (
     <View>
-{/*       <Image
-        source={require('../assets/poke_header.svg.png')}
-        style={styles.pokebolaBG}
-      /> */}
-      {/*     <Text style={{...styles.title, ...styles.globalMargin, top: top}}>
-        Home screen
-      </Text> */}
 
       <View style={{alignItems: 'center'}}>
         <FlatList
